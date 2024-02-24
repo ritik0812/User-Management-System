@@ -1,0 +1,78 @@
+{{!-- Header --}}
+{{>header}}
+
+
+{{!-- Navbar --}}
+{{>navbar}}
+
+
+<div class="container pt-5 pb-5">
+
+    {{!-- Home / New User --}}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+        </ol>
+    </nav>
+
+    {{!--Form --}}
+    <form class="row g-3 need-validation" action="/editUser" method="post" novalidate="true">
+        {{!-- First Name --}}
+        {{#each results}}
+        <div class="col-md-6">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="First Name" name="first_name"
+                    value="{{this.first_name}}">
+                <label for="floatingInput">First Name</label>
+            </div>
+
+        </div>
+
+        {{!-- Last Name --}}
+        <div class="col-md-6">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Last Name" name="last_name"
+                    value="{{this.last_name}}">
+                <label for="floatingInput">Last Name</label>
+            </div>
+
+        </div>
+
+        {{!-- Email --}}
+        <div class="col-md-6">
+            <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@gmail.com" name="email"
+                    value="{{this.email}}">
+                <label for="floatingInput">Email Address</label>
+            </div>
+        </div>
+
+        {{!-- Phone --}}
+        <div class="col-md-6">
+            <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="floatingInput" placeholder="Phone Number" name="phone"
+                    value="{{this.phone}}">
+                <label for="floatingInput">Phone Number</label>
+            </div>
+        </div>
+
+        {{!-- Comment --}}
+        <div class="col-md-12">
+            <div class="form-floating mb-3">
+                <textarea class="form-control" id="floatingInput" placeholder="Comment Box" name="comment"
+                    style="height:200px">{{this.comments}}</textarea>
+                <label for="floatingInput">Comment Box</label>
+            </div>
+        </div>
+
+        <div class="col-12 d-grid">
+            <button class="btn btn-primary" type="submit">Edit User</button>
+        </div>
+        {{/each}}
+    </form>
+</div>
+
+
+{{!-- Footer --}}
+{{>footer}}

@@ -1,0 +1,62 @@
+{{!-- Header --}}
+{{>header}}
+
+{{!-- Navbar --}}
+{{>navbar}}
+
+{{!-- Alert Message --}}
+<div class="container pt-5 pb-5">
+
+    {{#if removedUser}}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        User has been removed successfully.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{/if}}
+
+
+    <div class="row">
+        <div class="col-6">
+            <h2>Users</h2>
+        </div>
+        <div class="col-6 d-flex justify-content-end">
+            <a href="/addUser" type="button" class="btn btn-primary align-self-center">+ add user</a>
+        </div>
+    </div>
+
+    {{!-- Container --}}
+    <table class="table table-bordered">
+        <thead class="thread-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col" class="text-end">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each result}}
+            <tr>
+                <td scope="row">{{this.id}}</td>
+                <td>{{this.first_name}}</td>
+                <td>{{this.last_name}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.phone}}</td>
+                <td class="text-end">
+                    <a href="/viewUser?id={{this.id}}" type="button" class="btn btn-light btn-sm"><i
+                            class="bi bi-eye">View</i></a>
+                    <a href="/editUser?id={{this.id}}" type="button" class="btn btn-light btn-sm"><i
+                            class="bi bi-pencil">Edit</i></a>
+                    <a href="deleteUser?deleteRecord={{this.id}}" type="button" class="btn btn-light btn-sm"><i
+                            class="bi bi-person-x">Delete</i></a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+{{!-- Footer --}}
+{{>footer}}

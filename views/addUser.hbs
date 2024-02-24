@@ -1,0 +1,25 @@
+{{!-- Header --}}
+{{>header}}
+
+{{!-- Navbar --}}
+{{>navbar}}
+
+<div class="container pt-5 pb-5">
+
+    {{!-- Home / New User --}}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Add User</li>
+        </ol>
+    </nav>
+
+    {{!--Form --}}
+    <form class="row g-3 need-validation" action="/addUser" method="post" novalidate="true">
+        {{>userForm}}
+    </form>
+</div>
+
+
+{{!-- Footer --}}
+{{>footer}}
